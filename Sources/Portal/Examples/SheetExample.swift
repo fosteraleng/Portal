@@ -6,7 +6,7 @@ let animationExample: Animation = Animation.smooth(duration: animationDuration, 
 let animationExampleExtraBounce: Animation = Animation.smooth(duration: animationDuration + 0.12, extraBounce: 0.55)
 
 /// A demo view to showcase SheetShow Portal transitions
-public struct ExampleView: View {
+public struct Portal_SheetExample: View {
     @State private var showDetailRed = false
     @State private var showDetailPurple = false
     @State private var useMatchingColors = true
@@ -240,12 +240,6 @@ public struct ExampleView: View {
                 }
             }
         }
-    }
-}
-
-struct ExampleView_Previews: PreviewProvider {
-    static var previews: some View {
-        ExampleView()
     }
 }
 #endif
