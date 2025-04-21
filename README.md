@@ -2,6 +2,10 @@
 
 Portal is a SwiftUI package for seamless element transitions between views—including across sheets and navigation pushes—using a portal metaphor for maximum flexibility.
 
+## **Overview**
+
+![Example](/assets/example1.gif)
+
 ## Features
 
 - `.portalSource(id:)` — Mark the view that is leaving (source anchor)
