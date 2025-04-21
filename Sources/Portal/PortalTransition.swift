@@ -19,8 +19,8 @@ public struct PortalTransitionModifier<Layer: View>: ViewModifier {
         animate: Binding<Bool>,
         sourceProgress: CGFloat = 0,
         destinationProgress: CGFloat = 0,
-        animation: Animation = .bouncy(duration: 0.55),
-        animationDuration: TimeInterval = 0.55,
+        animation: Animation = .bouncy(duration: 0.3),
+        animationDuration: TimeInterval = 0.3,
         delay: TimeInterval = 0.06,
         layer: @escaping () -> Layer,
         completion: @escaping (Bool) -> Void = { _ in }
@@ -77,8 +77,8 @@ public extension View {
         animate: Binding<Bool>,
         sourceProgress: CGFloat = 0,
         destinationProgress: CGFloat = 0,
-        animation: Animation = .bouncy(duration: 0.55),
-        animationDuration: TimeInterval = 0.55,
+        animation: Animation = .smooth(duration: 0.42, extraBounce: 0.2),
+        animationDuration: TimeInterval = 0.72,
         delay: TimeInterval = 0.06,
         @ViewBuilder layer: @escaping () -> Layer,
         completion: @escaping (Bool) -> Void = { _ in }
