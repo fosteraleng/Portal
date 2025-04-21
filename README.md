@@ -66,3 +66,61 @@ Kick off the portal transition (typically on the parent container):
 ```
 
 See the `Sources/Portal` folder for full API details and example usage.
+
+## Example
+
+```swift
+import SwiftUI
+import Portal
+
+struct DemoView: View {
+    @State private var showDetail = false
+
+    var body: some View {
+        PortalContainer {
+            VStack {
+                Spacer()
+                // The source view (the view that will animate out)
+                Image(systemName: "star.fill")
+                    .resizable()
+                    .foregroundColor(.yellow)
+                    .frame(width: 80, height: 80)
+                    .portalSource(id: "star")
+                    .onTapGesture { showDetail = true }
+                Spacer()
+            }
+            .sheet(isPresented: $showDetail) {
+                VStack {
+                    // The destination view (the view that will animate in)
+                    Image(systemName: "star.fill")
+                        .resizable()
+                        .foregroundColor(.yellow)
+                        .frame(width: 180, height: 180)
+                        .portalDestination(id: "star")
+                        .onTapGesture { showDetail = false }
+                    Text("Star Details")
+                        .font(.title)
+                        .padding()
+                }
+            }
+            // The floating layer that animates between source and destination
+            .portalTransition(
+                id: "star",
+                animate: $showDetail,
+                animation: .spring(response: 0.7, dampingFraction: 0.6)
+            ) {
+                Image(systemName: "star.fill")
+                    .resizable()
+                    .foregroundColor(.yellow)
+            }
+        }
+    }
+}
+```
+How it works:
+
+- Wrap your root view in PortalContainer.
+- Attach .portalSource(id:) to the view you want to animate out.
+- Attach .portalDestination(id:) to the view you want to animate in.
+- Use .portalTransition(id:animate:animation:...) to provide the floating layer and control the animation.
+You can use any SwiftUI view as your source/destination/floating layer—images, shapes, custom views, etc.
