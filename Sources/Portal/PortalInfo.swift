@@ -7,6 +7,7 @@ public struct PortalInfo: Identifiable {
     public var isActive = false
     public var layerView: AnyView? = nil
     public var animateView = false
+    public var animationDuration: TimeInterval = 0.55
     public var hideView = false
     public var sourceAnchor: Anchor<CGRect>? = nil
     public var destinationAnchor: Anchor<CGRect>? = nil

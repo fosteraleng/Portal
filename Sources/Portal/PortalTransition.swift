@@ -8,18 +8,19 @@ public struct PortalTransitionModifier<Layer: View>: ViewModifier {
     public let sourceProgress: CGFloat
     public let destinationProgress: CGFloat
     public let animation: Animation
+    public let animationDuration: TimeInterval
     public let delay: TimeInterval
     public let layer: () -> Layer
     public let completion: (Bool) -> Void
 
     @EnvironmentObject private var portalModel: CrossModel
-
     public init(
         id: String,
         animate: Binding<Bool>,
         sourceProgress: CGFloat = 0,
         destinationProgress: CGFloat = 0,
-        animation: Animation = .easeInOut(duration: 0.55),
+        animation: Animation = .bouncy(duration: 0.55),
+        animationDuration: TimeInterval = 0.55,
         delay: TimeInterval = 0.06,
         layer: @escaping () -> Layer,
         completion: @escaping (Bool) -> Void = { _ in }
@@ -29,6 +30,7 @@ public struct PortalTransitionModifier<Layer: View>: ViewModifier {
         self.sourceProgress = sourceProgress
         self.destinationProgress = destinationProgress
         self.animation = animation
+        self.animationDuration = animationDuration
         self.delay = delay
         self.layer = layer
         self.completion = completion
@@ -46,6 +48,7 @@ public struct PortalTransitionModifier<Layer: View>: ViewModifier {
                 // activate and configure
                 portalModel.info[idx].isActive = true
                 portalModel.info[idx].layerView = AnyView(layer())
+                portalModel.info[idx].animationDuration = animationDuration
                 portalModel.info[idx].sourceProgress = sourceProgress
                 portalModel.info[idx].destinationProgress = destinationProgress
                 portalModel.info[idx].completion = completion
@@ -74,7 +77,8 @@ public extension View {
         animate: Binding<Bool>,
         sourceProgress: CGFloat = 0,
         destinationProgress: CGFloat = 0,
-        animation: Animation = .easeInOut(duration: 0.55),
+        animation: Animation = .bouncy(duration: 0.55),
+        animationDuration: TimeInterval = 0.55,
         delay: TimeInterval = 0.06,
         @ViewBuilder layer: @escaping () -> Layer,
         completion: @escaping (Bool) -> Void = { _ in }
@@ -86,6 +90,7 @@ public extension View {
                 sourceProgress: sourceProgress,
                 destinationProgress: destinationProgress,
                 animation: animation,
+                animationDuration: animationDuration,
                 delay: delay,
                 layer: layer,
                 completion: completion
