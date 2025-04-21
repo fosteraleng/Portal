@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="360" height="314.65" src="/assets/icon.png" alt="Portal Logo">
+  <img width="300" height="300" src="/assets/icon.png" alt="Portal Logo">
   <h1><b>Portal</b></h1>
   <p>
     Portal is a SwiftUI package for seamless element transitions between views—including across sheets and navigation pushes—using a portal metaphor for maximum flexibility.
@@ -10,10 +10,11 @@
 
 <div align="center">
   <a href="https://swift.org">
-    <img src="https://img.shields.io/badge/Swift-5.9%20%7C%206-orange.svg" alt="Swift Version">
+<!--     <img src="https://img.shields.io/badge/Swift-5.9%20%7C%206-orange.svg" alt="Swift Version"> -->
+    <img src="https://img.shields.io/badge/Swift-5.7-orange.svg" alt="Swift Version">
   </a>
   <a href="https://www.apple.com/ios/">
-    <img src="https://img.shields.io/badge/iOS-13%2B-blue.svg" alt="iOS">
+    <img src="https://img.shields.io/badge/iOS-15%2B-blue.svg" alt="iOS">
   </a>
   <a href="LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT">
@@ -23,7 +24,7 @@
 
 > **⚠️ Work in Progress (v0.0.1)**
 >
-> Portal is in **early beta**. APIs and behavior may change.  
+> Portal's API is still early, and behavior may change.  
 > Known issues:
 > - Shadows may flicker during animation
 > - Customizing hide timing requires manual duration settings  
