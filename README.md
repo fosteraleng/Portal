@@ -281,3 +281,28 @@ ScaleTransitionView(id: "myPortal") {
 > This is just one way to create custom transitions. The portal system is flexible and allows for many different animation approaches. A more declarative API for transitions is in development - this is temporary.
 
 ---
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Support
+
+If you like this project, please consider giving it a ⭐️
+
+## Where to find me:  
+- here, obviously.  
+- [Twitter](https://x.com/AetherAurelia)  
+- [Threads](https://www.threads.net/@aetheraurelia)  
+- [Bluesky](https://bsky.app/profile/aethers.world)  
+- [LinkedIn](https://www.linkedin.com/in/willjones24)
+
+## Acknowledgments
+
+thanks to all contributors and users of this project <3
+
+---
+
+<p align="center">Built with <3 by Aether</p>
+
+
