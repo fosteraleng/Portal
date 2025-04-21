@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="360" height="314.65" src="/assets/icon.png" alt="Portal Logo">
+  <img width="360" height="360" src="/assets/icon.png" alt="Portal Logo">
   <h1><b>Portal</b></h1>
   <p>
     Portal is a SwiftUI package for seamless element transitions between views—including across sheets and navigation pushes—using a portal metaphor for maximum flexibility.
