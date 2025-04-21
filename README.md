@@ -2,6 +2,16 @@
 
 Portal is a SwiftUI package for seamless element transitions between views—including across sheets and navigation pushes—using a portal metaphor for maximum flexibility.
 
+> **⚠️ Work in Progress (v0.0.1)**
+>
+> Portal is in **early beta**. APIs and behavior may change.  
+> Known issues:
+> - Shadows may flicker during animation
+> - Customizing hide timing requires manual duration settings  
+> - Edge cases around layout updates may not yet be fully handled  
+>
+> Use at your own risk and please report bugs or missing features on GitHub!
+
 ## **Overview**
 
 ![Example](/assets/example1.gif)
@@ -21,7 +31,7 @@ In Xcode: File → Add Packages → `https://github.com/Aeastr/Portal.git`
 Or in `Package.swift`:
 
 ```swift
-.package(url: "https://github.com/Aeastr/Portal.git", from: "1.0.0")
+.package(url: "https://github.com/Aeastr/Portal.git", from: "0.0.1")
 ```
 
 ## Usage
