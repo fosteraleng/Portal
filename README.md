@@ -10,7 +10,8 @@
 
 <div align="center">
   <a href="https://swift.org">
-    <img src="https://img.shields.io/badge/Swift-5.9%20%7C%206-orange.svg" alt="Swift Version">
+<!--     <img src="https://img.shields.io/badge/Swift-5.9%20%7C%206-orange.svg" alt="Swift Version"> -->
+    <img src="https://img.shields.io/badge/Swift-5.9-orange.svg" alt="Swift Version">
   </a>
   <a href="https://www.apple.com/ios/">
     <img src="https://img.shields.io/badge/iOS-13%2B-blue.svg" alt="iOS">
