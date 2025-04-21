@@ -40,7 +40,7 @@
 
 - `.portalSource(id:)` — Mark the view that is leaving (source anchor)
 - `.portalDestination(id:)` — Mark the view that is arriving (destination anchor)
-- `.portalTransition(id:animate:animation:delay:layer:completion:)` — Drive the floating overlay animation, with customizable animation and delay
+- `.portalTransition(id:animate:animation:animationDuration:delay:layer:completion:)` — Drive the floating overlay animation, with customizable animation and delay
 - No custom presentation modifiers required
 - Works on iOS 15+ and macOS 13+
 
@@ -92,7 +92,8 @@ Kick off the portal transition (typically on the parent container):
 .portalTransition(
     id: "Book1",
     animate: $showDetail, // your binding
-    animation: .spring(response: 0.7, dampingFraction: 0.6), // customizable
+    animation: .smooth(duration: 0.6), // customizable
+    animationDuration: 0.6, // required as the animation duration isn't exposed, and transition requires it
     delay: 0.1 // optional
 ) {
     FloatingLayerView()
@@ -141,7 +142,8 @@ struct DemoView: View {
             .portalTransition(
                 id: "star",
                 animate: $showDetail,
-                animation: .spring(response: 0.7, dampingFraction: 0.6)
+                animation: .smooth(duration: 0.6), // customizable
+                animationDuration: 0.6, // required as the animation duration isn't exposed, and transition requires it
             ) {
                 Image(systemName: "star.fill")
                     .resizable()
