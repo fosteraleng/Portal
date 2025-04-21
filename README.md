@@ -24,7 +24,7 @@
 
 > **⚠️ Work in Progress (v0.0.1)**
 >
-> Portal is in **early beta**. APIs and behavior may change.  
+> Portal's API is still early, and behavior may change.  
 > Known issues:
 > - Shadows may flicker during animation
 > - Customizing hide timing requires manual duration settings  
