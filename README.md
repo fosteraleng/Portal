@@ -21,10 +21,6 @@
   </a>
 </div>
 
-
-> **⚠️ Work in Progress** Please report bugs or missing features on GitHub!
-> Portal's API is still early, and behavior may change.  
-
 ## **Demo**
 
 ![Example](/assets/example1.gif)
@@ -39,11 +35,26 @@
 
 ## Features
 
-- `.portalSource(id:)` — Mark the view that is leaving (source anchor)
-- `.portalDestination(id:)` — Mark the view that is arriving (destination anchor)
-- `.portalTransition(id:animate:animation:animationDuration:delay:layer:completion:)` — Drive the floating overlay animation, with customizable animation and delay
-- No custom presentation modifiers required
-- Works on iOS 15+ and macOS 13+
+- **`PortalContainer(hideStatusBar:) { ... }`**  
+  Manages overlay window logic for floating portal animations. The `hideStatusBar` parameter controls whether the status bar is hidden when the overlay is active.
+
+- **`.portalContainer(hideStatusBar:)`**  
+  View extension for easily wrapping any view in a portal container, with optional status bar hiding.
+
+- **`.portalSource(id:)`**  
+  Marks a view as the source anchor for portal transitions.
+
+- **`.portalDestination(id:)`**  
+  Marks a view as the destination anchor for portal transitions.
+
+- **`.portalTransition(id: animate: animation: animationDuration: delay: layer: completion:)`**  
+  Drives the floating overlay animation, with options for animation type, duration, delay, layering, and completion handling.
+
+- **No custom presentation modifiers required**  
+  Works directly with standard SwiftUI views.
+
+- **iOS 15+ support**
+
 
 ## Installation
 
@@ -63,31 +74,44 @@ Wrap your root view with `PortalContainer`:
 import SwiftUI
 import Portal
 
-@main
-struct MyApp: App {
-    var body: some Scene {
-        WindowGroup {
-            PortalContainer {
-                ContentView()
+struct ExampleView: View {
+    @State private var showDetail = false
+
+    var body: some View {
+        PortalContainer {
+            VStack {
+                // Source image in the main view
+                Image("cover")
+                    .onTapGesture {
+                        showDetail = true
+                    }
+            }
+            // Present the destination in a sheet
+            .sheet(isPresented: $showDetail) {
+                // Destination image in the sheet
+                Image("cover")
+                    .portalDestination(id: "Book1")
             }
         }
     }
 }
 ```
 
-Mark the source and destination views (the exact element to animate):
+Mark the source view (the element to animate from):
 
 ```swift
 Image("cover")
     .portalSource(id: "Book1")
 ```
 
+Mark the destination view (the element to animate to, typically in a sheet or detail view):
+
 ```swift
 Image("cover")
     .portalDestination(id: "Book1")
 ```
 
-Kick off the portal transition (typically on the parent container):
+Kick off the portal transition:
 
 ```swift
 .portalTransition(
@@ -99,61 +123,52 @@ Kick off the portal transition (typically on the parent container):
 ) {
     FloatingLayerView()
 }
+```
 
-See the `Sources/Portal` folder for full API details and example usage.
-
-> ### Example
+All together, 
 
 ```swift
 import SwiftUI
 import Portal
 
-struct DemoView: View {
+struct ExampleView: View {
     @State private var showDetail = false
 
     var body: some View {
         PortalContainer {
             VStack {
-                Spacer()
-                // The source view (the view that will animate out)
-                Image(systemName: "star.fill")
-                    .resizable()
-                    .foregroundColor(.yellow)
-                    .frame(width: 80, height: 80)
-                    .portalSource(id: "star")
-                    .onTapGesture { showDetail = true }
-                Spacer()
+                // Source image in the main view
+                Image("cover")
+                    .portalSource(id: "Book1")
+                    .onTapGesture {
+                        showDetail = true
+                    }
             }
+            // Present the destination in a sheet
             .sheet(isPresented: $showDetail) {
-                VStack {
-                    // The destination view (the view that will animate in)
-                    Image(systemName: "star.fill")
-                        .resizable()
-                        .foregroundColor(.yellow)
-                        .frame(width: 180, height: 180)
-                        .portalDestination(id: "star")
-                        .onTapGesture { showDetail = false }
-                    Text("Star Details")
-                        .font(.title)
-                        .padding()
-                }
+                // Destination image in the sheet
+                Image("cover")
+                    .portalDestination(id: "Book1")
             }
-            // The floating layer that animates between source and destination
+            // Attach the portal transition to the parent container
             .portalTransition(
-                id: "star",
-                animate: $showDetail,
+                id: "Book1",
+                animate: $showDetail, // your binding
                 animation: .smooth(duration: 0.6), // customizable
                 animationDuration: 0.6, // required as the animation duration isn't exposed, and transition requires it
+                delay: 0.1 // optional
             ) {
-                Image(systemName: "star.fill")
-                    .resizable()
-                    .foregroundColor(.yellow)
+                // The floating overlay content during the transition
+                Image("cover")
             }
         }
     }
 }
 ```
-How it works:
+
+See the `Sources/Portal` folder for full API details and example usage.
+
+### Summary:
 
 - Wrap your root view in PortalContainer.
 - Attach .portalSource(id:) to the view you want to animate out.
@@ -264,7 +279,7 @@ ScaleTransitionView(id: "myPortal") {
 }
 ```
 
-### How It Works
+### Summary
 
 1. The `ScaleTransitionView` observes the portal's state through the `portalModel`.
 2. When the portal activates:
@@ -298,10 +313,6 @@ If you like this project, please consider giving it a ⭐️
 - [Threads](https://www.threads.net/@aetheraurelia)  
 - [Bluesky](https://bsky.app/profile/aethers.world)  
 - [LinkedIn](https://www.linkedin.com/in/willjones24)
-
-## Acknowledgments
-
-thanks to all contributors and users of this project <3
 
 ---
 
