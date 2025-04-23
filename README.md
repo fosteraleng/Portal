@@ -22,19 +22,18 @@
 </div>
 
 
-> **⚠️ Work in Progress (v0.0.1)**
->
+> **⚠️ Work in Progress** Please report bugs or missing features on GitHub!
 > Portal's API is still early, and behavior may change.  
-> Known issues:
-> - Shadows may flicker during animation
-> - Customizing hide timing requires manual duration settings  
-> - Edge cases around layout updates may not yet be fully handled  
->
-> Use at your own risk and please report bugs or missing features on GitHub!
 
-## **Overview**
+## **Demo**
 
 ![Example](/assets/example1.gif)
+
+## **Real Examples**
+
+https://github.com/user-attachments/assets/1658216e-dabd-442f-a7fe-7c2a19bf427d
+
+https://github.com/user-attachments/assets/7bba5836-f6e0-4d0b-95d7-f2c44c86c80a
 
 ## Features
 
@@ -98,11 +97,10 @@ Kick off the portal transition (typically on the parent container):
 ) {
     FloatingLayerView()
 }
-```
 
 See the `Sources/Portal` folder for full API details and example usage.
 
-### Example
+> ### Example
 
 ```swift
 import SwiftUI
