@@ -1,6 +1,33 @@
 import SwiftUI
 
-/// Drives the Portal floating layer for a given id
+/// Drives the Portal floating layer for a given id.
+///
+/// Use this view modifier to trigger and control a portal transition animation between
+/// a source and destination view. The modifier manages the floating overlay layer,
+/// animation timing, and transition state for the specified `id`.
+///
+/// - Parameters:
+///   - id: A unique string identifier for the portal transition. This should match the `id` used for the corresponding portal source and destination.
+///   - animate: A binding that triggers the transition when set to `true`.
+///   - sourceProgress: The progress value for the source view (default: 0).
+///   - destinationProgress: The progress value for the destination view (default: 0).
+///   - animation: The animation to use for the transition (default: `.bouncy(duration: 0.3)`).
+///   - animationDuration: The duration of the transition animation (default: 0.3).
+///   - delay: The delay before starting the animation (default: 0.06).
+///   - layer: A closure that returns the floating overlay view to animate.
+///   - completion: A closure called when the transition completes, with a `Bool` indicating success.
+///
+/// Example usage:
+/// ```swift
+/// .portalTransition(
+///     id: "Book1",
+///     animate: $showDetail,
+///     animation: .smooth(duration: 0.6),
+///     animationDuration: 0.6
+/// ) {
+///     Image("cover")
+/// }
+/// ```
 @available(iOS 15.0, macOS 13.0, *)
 public struct PortalTransitionModifier<Layer: View>: ViewModifier {
     public let id: String
@@ -69,6 +96,34 @@ public struct PortalTransitionModifier<Layer: View>: ViewModifier {
     }
 }
 
+/// Drives the portal animation for the given id.
+///
+/// Attach this modifier to a container view to drive a portal transition between
+/// a source and destination. The modifier manages the floating overlay, animation,
+/// and transition state for the specified `id`.
+///
+/// - Parameters:
+///   - id: A unique string identifier for the portal transition. This should match the `id` used for the corresponding portal source and destination.
+///   - animate: A binding that triggers the transition when set to `true`.
+///   - sourceProgress: The progress value for the source view (default: 0).
+///   - destinationProgress: The progress value for the destination view (default: 0).
+///   - animation: The animation to use for the transition (default: `.smooth(duration: 0.42, extraBounce: 0.2)`).
+///   - animationDuration: The duration of the transition animation (default: 0.72).
+///   - delay: The delay before starting the animation (default: 0.06).
+///   - layer: A closure that returns the floating overlay view to animate.
+///   - completion: A closure called when the transition completes, with a `Bool` indicating success.
+///
+/// Example usage:
+/// ```swift
+/// .portalTransition(
+///     id: "Book1",
+///     animate: $showDetail,
+///     animation: .smooth(duration: 0.6),
+///     animationDuration: 0.6
+/// ) {
+///     Image("cover")
+/// }
+/// ```
 @available(iOS 15.0, macOS 13.0, *)
 public extension View {
     /// Triggers a portal animation for the given id
