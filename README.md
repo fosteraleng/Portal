@@ -29,11 +29,13 @@
 
 ![Example](/assets/example1.gif)
 
-## **Real Examples**
+<details>
+  <summary><strong>Real Examples</strong></summary>
 
-https://github.com/user-attachments/assets/1658216e-dabd-442f-a7fe-7c2a19bf427d
+  https://github.com/user-attachments/assets/1658216e-dabd-442f-a7fe-7c2a19bf427d
 
-https://github.com/user-attachments/assets/7bba5836-f6e0-4d0b-95d7-f2c44c86c80a
+  https://github.com/user-attachments/assets/7bba5836-f6e0-4d0b-95d7-f2c44c86c80a
+</details>
 
 ## Features
 
