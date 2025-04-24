@@ -35,6 +35,8 @@
 
 ## Features
 
+- **DocC Documentation**
+
 - **`PortalContainer(hideStatusBar:) { ... }`**  
   Manages overlay window logic for floating portal animations. The `hideStatusBar` parameter controls whether the status bar is hidden when the overlay is active.
 
