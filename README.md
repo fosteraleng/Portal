@@ -59,8 +59,7 @@
 
 ## 📚 Documentation
 
-For full installation steps, usage guides, examples, and animation deep-dives, visit the Portal Wiki:  
-https://github.com/Aeastr/Portal/wiki
+For full installation steps, usage guides, examples, and animation deep-dives, visit the [Portal Wiki](https://github.com/Aeastr/Portal/wiki):  
 
 ---
 
