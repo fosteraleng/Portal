@@ -57,13 +57,22 @@
 
 ---
 
+## 📚 Documentation
+
+For full installation steps, usage guides, examples, and animation deep-dives, visit the Portal Wiki:  
+https://github.com/Aeastr/Portal/wiki
+
+---
+
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please feel free to submit a Pull Request. Before you begin, take a moment to review the [Contributing Guide](CONTRIBUTING.md) for details on issue reporting, coding standards, and the PR process.
 
 ## Support
 
 If you like this project, please consider giving it a ⭐️
+
+---
 
 ## Where to find me:  
 - here, obviously.  
