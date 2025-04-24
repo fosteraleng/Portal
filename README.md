@@ -33,6 +33,8 @@
   https://github.com/user-attachments/assets/7bba5836-f6e0-4d0b-95d7-f2c44c86c80a
 </details>
 
+---
+
 ## Features
 
 - **DocC Documentation**
@@ -57,13 +59,15 @@
 
 - **iOS 15+ support**
 
----
-
-## 📚 Documentation
+### 📚 Documentation
 
 For full installation steps, usage guides, examples, and animation deep-dives, visit the [Portal Wiki](https://github.com/Aeastr/Portal/wiki):  
 
 ---
+
+## License
+
+This project is released under the MIT License. See [LICENSE](LICENSE.md) for details.
 
 ## Contributing
 
