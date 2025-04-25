@@ -88,6 +88,4 @@ If you like this project, please consider giving it a ⭐️
 
 ---
 
-<p align="center">Built with <3 by Aether</p>
-
-
+<p align="center">Built with 🍏🌀🚪 by Aether</p>
